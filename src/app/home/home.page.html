@@ -1,0 +1,30 @@
+<ion-content padding>
+
+  <ion-item color="dark">
+    <ion-label>Rest Time</ion-label>
+    <!-- NGMODEL = 2 WAY DATA BINDING -->
+    <ion-datetime display-format="mm:ss" placeholder="Interval" [(ngModel)]="fullTime"></ion-datetime>
+  </ion-item>
+
+  <p>Total Time Elapsed  {{ elapsed.h }}:{{ elapsed.m }}:{{ elapsed.s }} </p>
+  <div id="circle-container">
+    <circle-progress (click)="startTimer()" 
+    [showTitle]="false"
+    [showSubtitle]="false" 
+    [showUnits]="false"  
+    [percent]="percent" 
+    [maxPercent]="100" 
+    [radius]="radius" 
+    [outerStrokeWidth]="16" 
+    [innerStrokeWidth]="2"
+    [outerStrokeColor]="'#0cd1e8'" 
+    [showZeroOuterStroke]="false" 
+    [innerStrokeColor]="'#ffffff'" 
+    [animation]="false"
+    [animationDuration]="300" 
+    [outerStrokeGradient]="5"></circle-progress>
+  </div>
+
+  <ion-button expand="full" color="danger" (click)="resetTimer()">Reset</ion-button>
+
+</ion-content>
